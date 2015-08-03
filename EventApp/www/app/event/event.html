@@ -1,0 +1,19 @@
+<ion-view view-title="Event">
+  <ion-content>
+     <ion-list show-delete="data.showDelete">
+         
+        <ion-item ng-repeat="item in items | orderBy: '-createdAt'" item="item" href="#/app/view/edit/{{item.objectId}}">
+         
+            <ul class="list">
+                <li class="item">
+                  {{item.evName}}<br>
+                  {{item.evDisc}}<br>
+                  {{item.evLocation}}<br>
+                  {{item.evSpek}}<br>
+                </li>
+            </ul>
+            
+        </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

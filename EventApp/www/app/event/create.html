@@ -1,5 +1,28 @@
-<ion-view>
-    <ion-content class="has-header">
-        <h1>Create Event</h1>
-    </ion-content>
+<ion-view view-title="Event">
+  <ion-content>
+     <div>
+        <ion-list>
+                <li class="item item-input item-stacked-label">
+                    <textarea type="text" placeholder="Event Name" name="name" rows="1" ng-model="todo.name" required></textarea>
+                </li>
+            
+             <li class="item item-input item-stacked-label">        
+    			<textarea type="text" placeholder="Event Discription" name="disc" rows="1" ng-model="todo.disc" required></textarea>
+              </li>
+              
+              <li class="item item-input item-stacked-label">        
+    			<textarea type="text" placeholder="Event Location" name="location" rows="1" ng-model="todo.location" required></textarea>
+              </li>
+              
+              <li class="item item-input item-stacked-label">         
+    			<textarea type="text" placeholder="Event Spker" name="spek" rows="1" ng-model="todo.spek" required></textarea>
+              </li>
+                   
+            
+            <ion-button class="button button-block button-positive" ng-click="create()">
+                Add
+            </ion-button>
+        </ion-list>
+    </div>
+  </ion-content>
 </ion-view>
