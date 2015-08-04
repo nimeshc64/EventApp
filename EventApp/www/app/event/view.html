@@ -1,11 +1,58 @@
-<ion-view view-title="View">
-  <ion-content>
-  <ion-item  item="item">
-    Event Name: {{event.evName}}<br>
-    Event Disc: {{event.evDisc}}<br>
-    Event Spek: {{event.evSpek}}<br>
-    Event location: {{event.evLocation}}<br>
-  </ion-item>
+<ion-view title="{{event.evName}}">
+  <ion-content class="has-header">
+
+    <div class="list card">
+      <div class="item " style="text-align: center;">
+        <h2><b>{{event.evName}}</b></h2>
+      </div>
+
+      <div class="item item-body">
+        <img class="full-image" src="app/img/{{event.evImg}}.jpg">
+        <div class="item  " style="text-align: center;">
+          Event Description
+        </div>
+        <p>
+          {{event.evDisc}}
+        </p>
+        <div class="item  " style="text-align: center;">
+          Event Spek
+        </div>
+        <p>
+          {{event.evSpek}}
+        </p>
+        <div class="item" style="text-align: center;">
+          Event Location
+        </div>
+        <div class="item">
+          <div class="row">
+            <p class="col">
+              <h2>{{event.evLocname}}</h2>
+            </p>
+            <div class="col" >
+              <a href="#/app/location/{{event.evLocation.latitude}}/{{event.evLocation.longitude}}" >
+                <button class="button  ion-ios-location-outline " href="" ></button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#">
+          <i class="icon ion-thumbsup"></i>
+          Like
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-chatbox"></i>
+          Comment
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-share"></i>
+          Share
+        </a>
+      </div>
+    </div>
+
 </ion-content>
 
 </ion-view>

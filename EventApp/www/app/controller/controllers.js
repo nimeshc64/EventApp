@@ -38,8 +38,8 @@ angular.module('eventApp.controllers',[])
 
     $scope.todo={};
 
-    $scope.create=function(){
-        eventApi.create({evName:$scope.todo.name,evDisc:$scope.todo.disc,evSpek:$scope.todo.spek,evLocation:$scope.todo.location}).success(function(data){
+    $scope.create=function(){      //evLocation:$scope.todo.location,
+        eventApi.create({evName:$scope.todo.name,evDisc:$scope.todo.disc,evSpek:$scope.todo.spek,evLocname:$scope.todo.locname}).success(function(data){
             $state.go('home.event');
         });
     }
@@ -47,4 +47,67 @@ angular.module('eventApp.controllers',[])
 
 }])
 
+    .controller('locationCtrl',['$scope','$stateParams','$cordovaGeolocation',function($scope,$stateParams,$cordovaGeolocation){
+
+        console.log($stateParams.lot);
+        $scope.myLocation = {
+            lng :$stateParams.lon,
+            lat :$stateParams.lat
+        }
+        $scope.drawMap = function(position) {
+
+            $scope.$apply(function() {
+                //$scope.myLocation.lng ='79.88421700000004';
+                //$scope.myLocation.lat ='6.871793';
+
+                $scope.map = {
+                    center: {
+                        latitude: $scope.myLocation.lat,
+                        longitude: $scope.myLocation.lng
+                    },
+                    zoom: 14,
+                    pan: 1
+                };
+
+                $scope.marker = {
+                    id: 0,
+                    coords: {
+                        latitude: $scope.myLocation.lat,
+                        longitude: $scope.myLocation.lng
+                    }
+                };
+
+                $scope.marker.options = {
+                    draggable: false,
+                    labelContent: "lat: " + $scope.marker.coords.latitude + '<br/> ' + 'lon: ' + $scope.marker.coords.longitude,
+                    labelAnchor: "80 120",
+                    labelClass: "marker-labels"
+                };
+            });
+        }
+
+        navigator.geolocation.getCurrentPosition($scope.drawMap);
+    }])
+
+    .controller('loginController', function($scope, $state, $ionicPopup) {
+
+        $scope.signIn = function(user) {
+            var pass = user.password;
+            var un   = user.username;
+            if (un=='admin' && pass=='admin123')  {
+                //console.log('Sign-In', pass, un);
+                $state.go('home.event');
+                //$state.closeModal();
+            }
+            else {
+                console.log('error');
+                $ionicPopup.alert({
+                    title: 'Enter your Correct UserName & Password'
+                }).then(function (password) {
+                    // You have the password now
+                });
+            }
+            //
+        };
+    })
 ;

@@ -1,24 +1,30 @@
-<ion-view view-title="Event">
+<ion-view title="Create Event">
   <ion-content>
      <div>
         <ion-list>
                 <li class="item item-input item-stacked-label">
                     <textarea type="text" placeholder="Event Name" name="name" rows="1" ng-model="todo.name" required></textarea>
                 </li>
-            
-             <li class="item item-input item-stacked-label">        
+
+             <li class="item item-input item-stacked-label">
     			<textarea type="text" placeholder="Event Discription" name="disc" rows="1" ng-model="todo.disc" required></textarea>
               </li>
-              
-              <li class="item item-input item-stacked-label">        
-    			<textarea type="text" placeholder="Event Location" name="location" rows="1" ng-model="todo.location" required></textarea>
+
+            <li class="item item-input item-stacked-label">
+                <textarea type="text" placeholder="Event LOcation" name="locname" rows="1" ng-model="todo.locname" required></textarea>
+            </li>
+
+              <li class="item item-input item-stacked-label">
+    			<textarea type="text" placeholder="Event GeoPoint" name="location" rows="1" ng-model="todo.location" required></textarea>
               </li>
-              
-              <li class="item item-input item-stacked-label">         
+
+              <li class="item item-input item-stacked-label">
     			<textarea type="text" placeholder="Event Spker" name="spek" rows="1" ng-model="todo.spek" required></textarea>
               </li>
-                   
-            
+            <li class="item item-input item-stacked-label">
+                <input type="file" name="file" ng-model="todo.file">
+            </li>
+
             <ion-button class="button button-block button-positive" ng-click="create()">
                 Add
             </ion-button>

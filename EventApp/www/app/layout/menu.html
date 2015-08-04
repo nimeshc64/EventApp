@@ -1,10 +1,18 @@
 <ion-side-menus >
-  <ion-pane ion-side-menu-content>
-    <ion-header-bar class="bar-balanced">
-      <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-    </ion-header-bar>
-    <ion-nav-view name="mainContent" animation="slide-left-right"></ion-nav-view>
-  </ion-pane>
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-stable">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+
+            <!--Just the menu toggle-->
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                </button>
+            </ion-nav-buttons>
+
+        </ion-nav-bar>
+        <ion-nav-view name="mainContent" animation="slide-right-left"></ion-nav-view>
+    </ion-side-menu-content>
   
   <ion-side-menu side="left">
     <header class="bar bar-header bar-balanced">
@@ -12,8 +20,8 @@
     </header>
     <ion-content class="has-header">
       <ion-list>
-        <ion-item nav-clear menu-close href="#/app/event">Home</ion-item>
-        <ion-item nav-clear menu-close>Gallery</ion-item>
+        <ion-item  nav-clear menu-close href="#/home/event" >Home</i></ion-item>
+        <ion-item nav-clear menu-close href="#/home/gallery">Gallery</ion-item>
         <ion-item nav-clear menu-close href="#/app/create">Create Event</ion-item>
       </ion-list>
     </ion-content>

@@ -1,5 +1,5 @@
 
-angular.module('eventApp', ['ionic', 'eventApp.controllers','eventApp.services'])
+angular.module('eventApp', ['ionic', 'eventApp.controllers','eventApp.services','ngCordova','uiGmapgoogle-maps'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -19,7 +19,12 @@ angular.module('eventApp', ['ionic', 'eventApp.controllers','eventApp.services']
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-  
+
+      .state('login', {
+          url:"/login",
+          templateUrl:"app/auth/login.html"
+      })
+
    .state('home', {
      abstract:true,
      url:"/home",
@@ -71,10 +76,20 @@ angular.module('eventApp', ['ionic', 'eventApp.controllers','eventApp.services']
       }
     }  
   })
+
+  .state('app.location', {
+      url: '/location/:lat/:lon',
+      views:{
+          "mainContent":{
+              templateUrl: 'app/location/location.html',
+              controller:'locationCtrl'
+          }
+      }
+  })
   
   
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/home/event');
+  $urlRouterProvider.otherwise('/app/create');
 });

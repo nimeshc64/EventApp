@@ -1,5 +1,9 @@
-<ion-view view-title="location">
-  <ion-content>
-    <h1>location</h1>
+<ion-view title="Location Map" ng-controller="locationCtrl">
+  <ion-content data-tap-disabled="true">
+    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+        <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id" closeClick="hideMarkerPopup()" onClicked="showMarkerPopup()">
+
+        </ui-gmap-marker>
+    </ui-gmap-google-map>
   </ion-content>
 </ion-view>
