@@ -1,11 +1,13 @@
-<ion-view view-title="Event">
+<ion-view view-title="Event List" style="background-color:#33cd5f; margin-top: -10px;">
   <ion-content>
-      <div class="list" ng-repeat="item in items | orderBy: '-createdAt'" item="item" href="#">
-          <a class="item item-avatar" href="#/app/view/edit/{{item.objectId}}">
-              <img src="app/img/logo.png">
-              <div style="text-align: center;">
-              <h2>{{item.evName}}</h2>
-              <p>{{item.evLocname}}</p>
+      <div class="list item-icon-right padding-left padding-right padding-top" ng-repeat="item in items | orderBy: '-createdAt'">
+          <a class="item  positive" href="#/app/view/edit/{{item.objectId}}" style="background-color: transparent;">
+              <div>
+              <h2 style="text-align: center; color: white;">{{item.evName}}</h2>
+                  <div class="item-text-wrap">
+                     <h5 style="color: white;">{{item.evLocname}}</h5>
+                  </div>
+               <i class="icon ion-chevron-right"></i>
               </div>
           </a>
       </div>

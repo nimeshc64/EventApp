@@ -1,4 +1,4 @@
-<ion-view title="{{event.evName}}">
+<ion-view title="{{event.evName}}" style="background-color:#33cd5f;">
   <ion-content class="has-header">
 
     <div class="list card">
@@ -14,23 +14,28 @@
         <p>
           {{event.evDisc}}
         </p>
-        <div class="item  " style="text-align: center;">
-          Event Spek
+
+        <div class="item" style="text-align: center;">
+          Event Speakers
         </div>
-        <p>
-          {{event.evSpek}}
-        </p>
+
+        <div ng-repeat="spek in Spitems" class="list-item">
+            <i class="icon ion-ios-arrow-right"></i> <a href="#/app/Speaker/{{spek.objectId}}" class="my-nav">{{spek.spName}}</a>
+            <div class="space"></div>
+        </div>
+
+
         <div class="item" style="text-align: center;">
           Event Location
         </div>
-        <div class="item">
+        <div class="item item-icon-right">
           <div class="row">
             <p class="col">
               <h2>{{event.evLocname}}</h2>
             </p>
-            <div class="col" >
+            <div class="col " >
               <a href="#/app/location/{{event.evLocation.latitude}}/{{event.evLocation.longitude}}" >
-                <button class="button  ion-ios-location-outline " href="" ></button>
+                <button class="button button-light  ion-ios-location" ></button>
               </a>
             </div>
           </div>

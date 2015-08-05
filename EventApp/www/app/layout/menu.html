@@ -1,12 +1,12 @@
 <ion-side-menus >
     <ion-side-menu-content>
-        <ion-nav-bar class="bar-stable">
+        <ion-nav-bar class="bar-stable bar-dark">
             <ion-nav-back-button>
             </ion-nav-back-button>
 
             <!--Just the menu toggle-->
             <ion-nav-buttons side="left">
-                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                <button class="button button-icon button-clear ion-navicon-round" menu-toggle="left">
                 </button>
             </ion-nav-buttons>
 
@@ -18,12 +18,27 @@
     <header class="bar bar-header bar-balanced">
       <h1 class="title">Menu</h1>
     </header>
-    <ion-content class="has-header">
-      <ion-list>
-        <ion-item  nav-clear menu-close href="#/home/event" >Home</i></ion-item>
-        <ion-item nav-clear menu-close href="#/home/gallery">Gallery</ion-item>
-        <ion-item nav-clear menu-close href="#/app/create">Create Event</ion-item>
-      </ion-list>
+    <ion-content class="has-header" style="background: url(app/img/menu.jpg);"><br>
+
+        <div class="list padding" style="color:white;">
+            <a menu-close class="item item-icon-left" href="#/home/event" style="background-color: transparent;">
+                <i class="icon ion-home"></i>
+                Home
+            </a>
+            <a menu-close class="item item-icon-left" href="#/home/gallery" style="background-color: transparent;">
+                <i class="icon ion-image"></i>
+                Gallery
+            </a>
+            <a menu-close class="item item-icon-left" href="#/app/create" style="background-color: transparent;">
+                <i class="icon ion-ios-compose"></i>
+                Create Event
+            </a><br><br>
+            <a menu-close class="item item-icon-left" href="#/login" style="background-color: transparent;">
+                <i class="icon ion-log-out"></i>
+                Logout
+            </a>
+        </div>
+
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>

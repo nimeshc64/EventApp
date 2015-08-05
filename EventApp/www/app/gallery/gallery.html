@@ -1,6 +1,24 @@
 <ion-view view-title="Gallery">
-  <button class="button button-clear button-positive">Edit</button>
-  <ion-content>
-    <h1>Gallery</h1>
+    <div class=" button-light padding" style="text-align: right;">
+        <a class="button button-positive button-outline" href="#/app/camera">
+            <i class="icon ion-camera"></i>  Take Photo
+        </a>
+    </div>
+
+  <ion-content><br>
+      <!--ng-repeat="image in album"-->
+    <div id="Gallery" >
+      <div class="gallery-item">
+        <a href="#">
+          <img ng-src="app/img/logo.png" alt="#" style="width:100px;"/>
+        </a>
+      </div>
+        <div class="gallery-item">
+            <a href="#">
+                <img ng-src="app/img/idmart.jpg" alt="#" style="width:200px;"/>
+            </a>
+        </div>
+    </div>
+
   </ion-content>
 </ion-view>

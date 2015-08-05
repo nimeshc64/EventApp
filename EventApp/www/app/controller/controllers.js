@@ -6,7 +6,21 @@ angular.module('eventApp.controllers',[])
         $scope.items=data.results;
 
     });
-    
+
+        $scope.onItemDelete=function(item){
+        eventApi.delete(item.objectId);
+        $scope.items.splice($scope.items.indexOf(item),1);
+    }
+
+}])
+
+.controller('SpeakerCtrl',['$scope','eventApi',function($scope,eventApi){
+
+    eventApi.getAllSP().success(function(data){
+        $scope.items=data.results;
+
+    });
+
 
     $scope.onItemDelete=function(item){
         eventApi.delete(item.objectId);
@@ -20,7 +34,13 @@ angular.module('eventApp.controllers',[])
        eventApi.get($stateParams.id).success(function(data){
         $scope.event=data;
         console.log(data);
-    });
+
+       eventApi.getAllSP().success(function(data){
+           $scope.Spitems=data.results;
+       });
+
+
+       });
 
 
     // $scope.event={id:$stateParams.id,content:$stateParams.content};
@@ -34,10 +54,18 @@ angular.module('eventApp.controllers',[])
 
 }])
 
+.controller('SpeakerCtrl',['$scope','eventApi','$state','$stateParams',function($scope,eventApi,$state,$stateParams){
+
+    eventApi.getSP($stateParams.id).success(function(data){
+        $scope.spk=data;
+        console.log(data);
+    });
+}])
+
 .controller('createCtrl',['$scope','eventApi','$state',function($scope,eventApi,$state){
 
     $scope.todo={};
-
+    console.log($scope.todo);
     $scope.create=function(){      //evLocation:$scope.todo.location,
         eventApi.create({evName:$scope.todo.name,evDisc:$scope.todo.disc,evSpek:$scope.todo.spek,evLocname:$scope.todo.locname}).success(function(data){
             $state.go('home.event');
@@ -110,4 +138,22 @@ angular.module('eventApp.controllers',[])
             //
         };
     })
+
+    .controller('CameraCtrl',['$cordovaCamera', function ($scope, $cordovaCamera) {
+        $scope.takePicture = function () {
+            var options = {
+                quality: 50,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.CAMERA
+            };
+
+            // udpate camera image directive
+            $cordovaCamera.getPicture(options).then(function (imageData) {
+                $scope.cameraimage = "data:image/jpeg;base64," + imageData;
+            }, function (err) {
+                console.log('Failed because: ');
+                console.log(err);
+            });
+        };
+    }]);
 ;

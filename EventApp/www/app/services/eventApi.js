@@ -49,7 +49,29 @@ angular.module('eventApp.services',[]).factory('eventApi',['$http','$ionicLoadin
                     'Content-Type':'application/json'
                 }
             });
-        }
+        },
+
+        getAllSP:function()
+        {
+            return $http.get('https://api.parse.com/1/classes/Speakers',{
+                    headers:{
+                        'X-Parse-Application-Id': PARSE_CREDENTIALS.APP_ID,
+                        'X-Parse-REST-API-Key':PARSE_CREDENTIALS.REST_API_KEY,
+                    }
+                }
+            );
+        },
+
+        getSP:function(id)
+        {
+            return $http.get('https://api.parse.com/1/classes/Speakers/'+id,{
+                    headers:{
+                        'X-Parse-Application-Id': PARSE_CREDENTIALS.APP_ID,
+                        'X-Parse-REST-API-Key':PARSE_CREDENTIALS.REST_API_KEY,
+                    }
+                }
+            );
+        },
     }
 }]).value('PARSE_CREDENTIALS',{
     APP_ID: 'dBlefdNhjMxOGR8SeWrq2zIZezNbrT3SABBpn70f',

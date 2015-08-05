@@ -1,34 +1,31 @@
-<ion-view title="Create Event">
-  <ion-content>
-     <div>
-        <ion-list>
-                <li class="item item-input item-stacked-label">
-                    <textarea type="text" placeholder="Event Name" name="name" rows="1" ng-model="todo.name" required></textarea>
-                </li>
+<ion-view title="Create Event" style="background-color: #33cd5f;">
+  <ion-content class="padding"><br>
+      <div class="list">
+          <label class="item item-input item-stacked-label">
+              <span class="input-label" style="color: white;">Event Name</span>
+              <input type="text" placeholder="Event Name" ng-model="todo.name" required style="background-color: transparent; color: white;">
+          </label>
+          <label class="item item-input item-stacked-label">
+              <span class="input-label" style="color: white;">Event Description</span>
+              <input type="text" placeholder="Event Description" ng-model="todo.disc" required style="background-color: transparent; color: white;" >
+          </label>
+          <label class="item item-input item-stacked-label">
+              <span class="input-label" style="color: white;">Event Location</span>
+              <input type="text" placeholder="Event Location" ng-model="todo.locname" required style="background-color: transparent; color: white;">
+          </label>
+          <label class="item item-input item-stacked-label">
+              <span class="input-label" style="color: white;">Event Speakers</span>
+              <input type="text" placeholder="Event Speakers" ng-model="todo.spek" required style="background-color: transparent; color: white;">
+          </label>
+          <!--<label class="item item-input item-floating-label">-->
+              <!--<span class="input-label">Event Image</span>-->
+              <!--<input type="file" placeholder="Event Image" ng-model="todo.FILE_URI" required>-->
+          <!--</label>-->
+      </div>
 
-             <li class="item item-input item-stacked-label">
-    			<textarea type="text" placeholder="Event Discription" name="disc" rows="1" ng-model="todo.disc" required></textarea>
-              </li>
+      <ion-button class="button button-block button-stable" ng-click="create()">
+          Add
+      </ion-button>
 
-            <li class="item item-input item-stacked-label">
-                <textarea type="text" placeholder="Event LOcation" name="locname" rows="1" ng-model="todo.locname" required></textarea>
-            </li>
-
-              <li class="item item-input item-stacked-label">
-    			<textarea type="text" placeholder="Event GeoPoint" name="location" rows="1" ng-model="todo.location" required></textarea>
-              </li>
-
-              <li class="item item-input item-stacked-label">
-    			<textarea type="text" placeholder="Event Spker" name="spek" rows="1" ng-model="todo.spek" required></textarea>
-              </li>
-            <li class="item item-input item-stacked-label">
-                <input type="file" name="file" ng-model="todo.file">
-            </li>
-
-            <ion-button class="button button-block button-positive" ng-click="create()">
-                Add
-            </ion-button>
-        </ion-list>
-    </div>
   </ion-content>
 </ion-view>

@@ -1,6 +1,9 @@
 
-angular.module('eventApp', ['ionic', 'eventApp.controllers','eventApp.services','ngCordova','uiGmapgoogle-maps'])
+angular.module('eventApp', ['ionic','eventApp.controllers','eventApp.services','ngCordova','uiGmapgoogle-maps'])
 
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    $ionicConfigProvider.tabs.position('bottom');
+})
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -49,6 +52,7 @@ angular.module('eventApp', ['ionic', 'eventApp.controllers','eventApp.services',
       }
     }  
   })
+
   
     .state('app', {
     abstract:true,  
@@ -86,10 +90,30 @@ angular.module('eventApp', ['ionic', 'eventApp.controllers','eventApp.services',
           }
       }
   })
+
+  .state('app.camera', {
+      url: '/camera',
+      views:{
+          "mainContent":{
+              templateUrl: 'app/gallery/camera.html',
+              controller:'CameraCtrl'
+          }
+      }
+  })
+
+  .state('app.Speaker', {
+      url: '/Speaker/:id',
+      views:{
+          "mainContent":{
+              templateUrl: 'app/Speakers/Speakers.html',
+              controller:'SpeakerCtrl'
+          }
+      }
+  })
   
   
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/create');
+  $urlRouterProvider.otherwise('/login');
 });

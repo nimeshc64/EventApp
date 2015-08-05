@@ -6,6 +6,7 @@
     "angular-google-maps": "~2.1.5"
   },
   "dependencies": {
-    "ngCordova": "~0.1.17-alpha"
+    "ngCordova": "~0.1.17-alpha",
+    "angular-upload": "~1.0.12"
   }
 }
